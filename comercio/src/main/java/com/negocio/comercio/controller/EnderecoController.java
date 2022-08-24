@@ -71,7 +71,9 @@ public class EnderecoController {
 	@DeleteMapping("/deleteEndereco/{id}")
 	public ResponseEntity<Void> deleteEndereco(@PathVariable Long id){
 		Comercio comercio = comercioRepo.findById(id).get();
-		enderecoRepo.delete(comercio.getEndereco());
+		Endereco e = comercio.getEndereco();
+		comercio.setEndereco(null);
+		enderecoRepo.delete(e);
 		return ResponseEntity.noContent().build();
 	}
 	

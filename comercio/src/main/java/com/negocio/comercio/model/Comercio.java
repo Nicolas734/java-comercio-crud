@@ -30,7 +30,7 @@ public class Comercio {
 	@Column
 	private String tell;
 
-	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "comercio", fetch = FetchType.EAGER)
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "comercio", fetch = FetchType.EAGER)
 	private Endereco endereco;
 	
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "comercio", fetch = FetchType.LAZY)

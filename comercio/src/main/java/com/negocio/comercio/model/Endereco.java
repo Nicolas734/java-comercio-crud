@@ -1,5 +1,6 @@
 package com.negocio.comercio.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -30,7 +31,7 @@ public class Endereco {
 	@Column
 	private String cep;
 	
-	@OneToOne(fetch = FetchType.EAGER, orphanRemoval = true)
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	private Comercio comercio;
 	
 	public Long getId() {
