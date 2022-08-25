@@ -34,6 +34,11 @@ public class EnderecoController {
 		return enderecoRepo.findAll();
 	}
 	
+	@GetMapping("/searchEnderecoById/{id}")
+	public Endereco searchEnderecoById(@PathVariable Long id) {
+		return enderecoRepo.findById(id).get();
+	}
+	
 	@PostMapping("/criarEndereco/{id}")
 	public Endereco createEndereco(@RequestBody Endereco dados, @PathVariable Long id) {
 		Comercio comercio = comercioRepo.findById(id).get();

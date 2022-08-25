@@ -33,6 +33,11 @@ public class ProdutoController {
 		return produtoRepo.findAll();
 	}
 	
+	@GetMapping("/searchProdById/{id}")
+	public Produto searchProdutoById(@PathVariable Long id) {
+		return produtoRepo.findById(id).get();
+	}
+	
 	@PostMapping("/criarProduto/{id}")
 	public Produto createProduto(@RequestBody Produto dados, @PathVariable Long id) {
 		Comercio comercio = comercioRepo.findById(id).get();

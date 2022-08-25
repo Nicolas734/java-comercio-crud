@@ -26,16 +26,22 @@ public class ComercioController {
 		return comercio;
 	}
 	
+	@GetMapping("/search")
+	public Iterable<Comercio> searchAllComercio() {
+		return comercioRepo.findAll();
+	}
+	
+	@GetMapping("/searchById/{id}")
+	public Comercio searchComercioByid(@PathVariable Long id) {
+		return comercioRepo.findById(id).get();
+	}
+	
 	@PostMapping("/criar")
 	public Comercio createComercio(@RequestBody Comercio dados) {
 		comercioRepo.save(dados);
 		return dados;
 	}
 	
-	@GetMapping("/search")
-	public Iterable<Comercio> searchAllComercio() {
-		return comercioRepo.findAll();
-	}
 	
 	@PutMapping("/updateComercio/{id}")
 	public Comercio updateComercio(@RequestBody Comercio dados, @PathVariable Long id) {

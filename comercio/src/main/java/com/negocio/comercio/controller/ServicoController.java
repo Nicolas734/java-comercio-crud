@@ -33,6 +33,11 @@ public class ServicoController {
 		return servicoRepo.findAll();
 	}
 	
+	@GetMapping("/searchServById/{id}")
+	public Servico searchServicoById(@PathVariable Long id) {
+		return servicoRepo.findById(id).get();
+	}
+	
 	@PostMapping("/criarServico/{id}")
 	public Servico createServico(@RequestBody Servico dados, @PathVariable Long id) {
 		Comercio comercio = comercioRepo.findById(id).get();
